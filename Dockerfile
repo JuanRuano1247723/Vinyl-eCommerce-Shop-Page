@@ -10,8 +10,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # Si usas Tailwind/Playwright/etc., asegúrate de que no fallen en build
-ENV NODE_OPTIONS="--max-old-space-size=4096"
-RUN npm run build
+RUN npm run build --debug
 
 # -------- run (standalone) --------
 # Si usas output: 'standalone', copiamos solo lo mínimo
